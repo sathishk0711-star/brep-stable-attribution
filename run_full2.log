@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 60, in main
+    loss,_=net.objective(g,y,inst,bot,c,args.steps,stability=0 if args.arm=='no_stability' else .5,consistency=0 if args.arm=='no_consistency' else .1)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/framework.py", line 101, in objective
+    group=F.binary_cross_entropy(pairs[sel],inst[sel]) if sel.any() else pairs.sum()*0
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/torch/nn/functional.py", line 3631, in binary_cross_entropy
+    return torch._C._nn.binary_cross_entropy(input, target, weight, reduction_enum)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: all elements of input should be between 0 and 1
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 60, in main
+    loss,_=net.objective(g,y,inst,bot,c,args.steps,stability=0 if args.arm=='no_stability' else .5,consistency=0 if args.arm=='no_consistency' else .1)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/framework.py", line 101, in objective
+    group=F.binary_cross_entropy(pairs[sel],inst[sel]) if sel.any() else pairs.sum()*0
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/torch/nn/functional.py", line 3631, in binary_cross_entropy
+    return torch._C._nn.binary_cross_entropy(input, target, weight, reduction_enum)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: all elements of input should be between 0 and 1
+ALLDONE2
