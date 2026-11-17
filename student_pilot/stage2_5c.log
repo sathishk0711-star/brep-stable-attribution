@@ -1,0 +1,10 @@
+/usr/local/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+train faces 10480 val faces 2314
+ref ok
+seed 11 val mse 0.05435958877205849 epoch 18
+seed 23 val mse 0.05422303453087807 epoch 17
+seed 37 val mse 0.05392212048172951 epoch 20
+seed 53 val mse 0.05351373553276062 epoch 17
+seed 71 val mse 0.05442916601896286 epoch 15
+DONE
