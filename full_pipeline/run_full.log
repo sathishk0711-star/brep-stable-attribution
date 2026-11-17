@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 60, in main
+    loss,_=net.objective(g,y,inst,bot,c,args.steps,stability=0 if args.arm=='no_stability' else .5,consistency=0 if args.arm=='no_consistency' else .1)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/framework.py", line 101, in objective
+    group=F.binary_cross_entropy(pairs[sel],inst[sel]) if sel.any() else pairs.sum()*0
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/torch/nn/functional.py", line 3631, in binary_cross_entropy
+    return torch._C._nn.binary_cross_entropy(input, target, weight, reduction_enum)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: all elements of input should be between 0 and 1
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 41, in main
+    state=torch.load(args.checkpoint,map_location='cpu',weights_only=False)
+  File "/usr/local/lib/python3.13/site-packages/torch/serialization.py", line 1566, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/torch/serialization.py", line 796, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.13/site-packages/torch/serialization.py", line 777, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ~~~~^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/runs/aagnet_full_seed_11/best.pt'
+full 23 {'epoch': 1, 'train_loss': 98.86178212892264, 'val_ce': 0.8299762401729822, 'seconds': 42.82528318499999}
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/train.py", line 60, in main
+    loss,_=net.objective(g,y,inst,bot,c,args.steps,stability=0 if args.arm=='no_stability' else .5,consistency=0 if args.arm=='no_consistency' else .1)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/framework.py", line 101, in objective
+    group=F.binary_cross_entropy(pairs[sel],inst[sel]) if sel.any() else pairs.sum()*0
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/torch/nn/functional.py", line 3631, in binary_cross_entropy
+    return torch._C._nn.binary_cross_entropy(input, target, weight, reduction_enum)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: all elements of input should be between 0 and 1
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 74, in main
+    rows.append(dict(id=name,method=method,target_class=c,attribution=a.tolist(),prediction=pred.tolist(),truth=y.tolist(),completeness_abs=abs(float(a.sum())-fx+fb),semantic_mass_alignment=float(a.abs()[y==c].sum()/(a.abs().sum()+1e-8)),foreground_conditional_instance_iou=ii,seconds=elapsed,reference_normalized_l1=stability,deletion_logits=delete,insertion_logits=insert,deletion_auc=float(np.trapz(delete,dx=.1)),insertion_auc=float(np.trapz(insert,dx=.1))))
+                                                                                                                                                                                                                                                                                                                                                                                                         ^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/numpy/__init__.py", line 769, in __getattr__
+    raise AttributeError(f"module {__name__!r} has no attribute {attr!r}")
+AttributeError: module 'numpy' has no attribute 'trapz'. Did you mean: 'trace'?
+full 37 {'epoch': 1, 'train_loss': 81.97461924888194, 'val_ce': 0.9834698266349733, 'seconds': 42.73343094699999}
+full 37 {'epoch': 2, 'train_loss': 23.542672564275563, 'val_ce': 0.2533454211661592, 'seconds': 86.48256987400009}
+full 37 {'epoch': 3, 'train_loss': 11.398179954965599, 'val_ce': 0.28325706074247137, 'seconds': 130.03747703900012}
+full 37 {'epoch': 4, 'train_loss': 7.028536144411191, 'val_ce': 0.11785218393197283, 'seconds': 173.21776385499993}
+full 37 {'epoch': 5, 'train_loss': 5.796131185605191, 'val_ce': 0.150984306470491, 'seconds': 215.7633963180001}
+full 37 {'epoch': 6, 'train_loss': 2.423750690999441, 'val_ce': 0.1584039650624618, 'seconds': 257.39768267499994}
+Traceback (most recent call last):
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/claude/pkg/ACD_Compact_Implementation_MFInstSeg_224/proposed/evaluate.py", line 74, in main
+    rows.append(dict(id=name,method=method,target_class=c,attribution=a.tolist(),prediction=pred.tolist(),truth=y.tolist(),completeness_abs=abs(float(a.sum())-fx+fb),semantic_mass_alignment=float(a.abs()[y==c].sum()/(a.abs().sum()+1e-8)),foreground_conditional_instance_iou=ii,seconds=elapsed,reference_normalized_l1=stability,deletion_logits=delete,insertion_logits=insert,deletion_auc=float(np.trapz(delete,dx=.1)),insertion_auc=float(np.trapz(insert,dx=.1))))
+                                                                                                                                                                                                                                                                                                                                                                                                         ^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/numpy/__init__.py", line 769, in __getattr__
+    raise AttributeError(f"module {__name__!r} has no attribute {attr!r}")
+AttributeError: module 'numpy' has no attribute 'trapz'. Did you mean: 'trace'?
+ALLDONE
